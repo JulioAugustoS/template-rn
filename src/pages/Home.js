@@ -10,6 +10,9 @@ class Home extends Component {
         return(
             <View>
                 <Header textTitle="Home" backButton menuButton />
+                <View>
+
+                </View>
             </View>
         )
     }
