@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Router, Stack, Scene } from 'react-native-router-flux'
 
 // Rotas
-import Home from '../pages/Home'
+import Home from '../views/Home'
+import Gradient from '../views/Gradient'
+import Camera from '../views/Camera'
 
 class Routers extends Component {
 
@@ -14,7 +16,9 @@ class Routers extends Component {
                         drawer
                         hideNavBar
                     >
-                        <Scene key="home" component={Home} hideNavBar hideTabBar />
+                        <Scene key="home" component={Home} hideNavBar initial />
+                        <Scene key="gradient" component={Gradient} hideNavBar />
+                        <Scene key="camera" component={Camera} hideNavBar />
                     </Scene>
                 </Stack>
             </Router>
