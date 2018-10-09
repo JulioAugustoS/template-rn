@@ -1,14 +1,14 @@
 import React from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity, Text } from 'react-native'
 
-const Button = ({ titleButton }) => {
+import Style from '../../assets/styles'
+
+const Button = ({titleButton, onPress}) => {
 
     return(
-        <View>
-            <TouchableOpacity>
-                <Text>{ titleButton }</Text>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={Style.Button} onPress={onPress}>
+            <Text style={Style.ButtonText}>{ titleButton }</Text>
+        </TouchableOpacity>
     )
 
 }

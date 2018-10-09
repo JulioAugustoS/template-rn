@@ -1,45 +1,44 @@
 import React from 'react'
-import { Platform, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
+import { Platform, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Actions } from 'react-native-router-flux'
 
-const Header = ({ backButton, textTitle, menuButton }) => {
+const Header = ({backButton, textTitle, menuButton}) => {
 
-    const showMenu = () => {
+    const showDrawer = () => {
         Actions.drawerOpen()
     }
 
     const _backButton = () => {
         return(
-            <TouchableOpacity style={style.buttonLeft}>
-                <Icon color="#FFF" style={style.icon} name="angle-left" size={25} />
+            <TouchableOpacity style={[styles.buttonLeft, styles.icon]} onPress={() => Actions.pop({})}>
+                <Icon color="#FFF" name="angle-left" size={25} />
             </TouchableOpacity>
         )
     }
 
     const _menuButton = () => {
         return(
-            <TouchableOpacity style={style.buttonRight} onPress={() => showMenu()}>
-                <Icon color="#FFF" style={style.icon} name="bars" size={25} />
+            <TouchableOpacity style={[styles.buttonRight, styles.icon]} onPress={() => showDrawer()}>
+                <Icon color="#FFF" name="bars" size={25} />
             </TouchableOpacity>
         )
     }
 
     return(
-        <View style={style.header}>
+        <LinearGradient colors={['#3498db', '#2980b9']} style={styles.header}>
             {backButton ? _backButton() : null}
+            <Text style={styles.textTitle}>{textTitle}</Text>
             {menuButton ? _menuButton() : null}
-            <Text style={style.textTitle}>{ textTitle }</Text>
-        </View>
+        </LinearGradient>
     )
 
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     header: {
         height: 60,
-        paddingTop: Platform.OS === 'ios' ? 15 : 0,
-        backgroundColor: '#2980b9',
         display: 'flex',
         borderBottomWidth: 0,
         justifyContent: 'center',
@@ -47,18 +46,18 @@ const style = StyleSheet.create({
             width: 0,
             height: 1
         },
-        shadowColor: '#999',
+        shadowColor: '#000',
         shadowOpacity: 0.8,
-        elevation: 5
+        elevation: 5,
+        paddingTop: Platform.OS === 'ios' ? 15 : 0
     },
     textTitle: {
         textAlign: 'center',
-        color: '#FFF',
-        fontSize: 16,
-        fontWeight: 'bold'
+        color: '#FFF'
     },
     buttonLeft: {
         position: 'absolute',
+        zIndex: 2,
         left: 10
     },
     buttonRight: {
