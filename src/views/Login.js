@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, AsyncStorage, Alert } from 'react-native'
-import { Container, Content, Form, Item, Input, Label, Button, Text, Switch } from 'native-base'
+import { StyleSheet, View, Platform, Alert, Text } from 'react-native'
+import { Container, Content, Form, Item, Input, Label, Button, Switch } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import TouchID from 'react-native-touch-id'
 
@@ -26,6 +26,19 @@ class Login extends Component {
         }
     }
 
+    _ativarDigital = () => {
+        if(Platform.OS === 'ios'){
+            return(
+                <View style={style.touchId}>
+                    <Text style={style.left}>Usar o TouchID</Text>
+                    <Switch style={style.right} value={this.state.touchid} onValueChange={touchid => this.setState({touchid})} />
+                </View>
+            )
+        }else{
+            return null
+        }
+    }
+
     _autenticar = () => {
 
         const user = 'Julio'
@@ -44,6 +57,7 @@ class Login extends Component {
                 if(user !== usuario && pass !== senha){
                     Alert.alert('Usuario ou senha incorreto!')
                 }else{
+                    Alert.alert('Autenticado com sucesso!')
                     Actions.user({})
                 }
             }
@@ -88,10 +102,7 @@ class Login extends Component {
                             </Item>
                             {this._requireSenha()}
                         </View>
-                        <View style={style.touchId}>
-                            <Text style={style.left}>Usar o TouchID</Text>
-                            <Switch style={style.right} value={this.state.touchid} onValueChange={touchid => this.setState({touchid})} />
-                        </View>
+                        {this._ativarDigital()}
                         <View style={style.viewButton}>
                             <Button block success onPress={() => this._autenticar()}>
                                 <Text>Entrar</Text>

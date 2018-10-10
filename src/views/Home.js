@@ -21,7 +21,7 @@ class Home extends Component {
                 <Header textTitle="Home" menuButton />
                 <ScrollView style={{padding:10}}>
                     <Button titleButton="Gradient" onPress={() => Actions.gradient({})} />
-                    {Platform.OS === 'ios' ? touchId() : ''}
+                    {Platform.OS === 'ios' ? touchId() : null}
                     <Button titleButton="Login" onPress={() => Actions.login({})} />
                 </ScrollView>
             </Container>
