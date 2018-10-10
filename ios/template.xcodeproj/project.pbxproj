@@ -58,7 +58,7 @@
 		8B75F6C606B841BB8599FB1B /* libTouchID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B37334A9C1A49AD86BE5756 /* libTouchID.a */; };
 		9499EE29623F4FA4A1BF658F /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 776638D7A94C4D7BAE8743BE /* FontAwesome5_Brands.ttf */; };
 		A8BCDAB1BE894D8DAC797D2C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3931771EBD1F4D7BBBCB13E5 /* FontAwesome.ttf */; };
-		A8F0B5543D464569B1A3E882 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DA2DFBB82040498B09D4A4 /* libRNCamera.a */; };
+		A8F0B5543D464569B1A3E882 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DA2DFBB82040498B09D4A4 /* libRNCamera.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		ACA11447C4724107BD74318B /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B827E1073C4840A463BC23 /* libRNVectorIcons.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		AF705E21A2AE4A33911F1246 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0264C25DD162473DA9472A54 /* FontAwesome5_Regular.ttf */; };
